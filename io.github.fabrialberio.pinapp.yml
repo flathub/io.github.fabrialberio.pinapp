@@ -38,4 +38,4 @@ modules:
     sources:
     - type: git
       url: https://github.com/fabrialberio/PinApp
-      commit: 5b8e9b4e0b52bb8bbcecb581d6c01ab591e73008
+      commit: 640af9af8952cdf569a578e4275f6e2eb00db0f7
