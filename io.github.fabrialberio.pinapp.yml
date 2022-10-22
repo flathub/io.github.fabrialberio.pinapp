@@ -9,12 +9,7 @@ finish-args:
   - --device=dri
   - --socket=fallback-x11
   - --socket=wayland
-
-  - --env=XDG_DATA_DIRS=/var/lib/flatpak/exports/share:/usr/share
-
-    # Icons
-  - --filesystem=xdg-data/icons:ro
-
+  
     # Applications
   - --filesystem=xdg-data/applications:rw
   - --filesystem=xdg-data/flatpak:ro
@@ -38,4 +33,4 @@ modules:
     sources:
     - type: git
       url: https://github.com/fabrialberio/PinApp
-      commit: 640af9af8952cdf569a578e4275f6e2eb00db0f7
+      commit: d38dbc7497ec169d386ac6c76a400a553a4cd158
