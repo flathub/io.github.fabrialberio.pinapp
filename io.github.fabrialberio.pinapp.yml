@@ -27,11 +27,107 @@ cleanup:
   - "*.la"
   - "*.a"
 
+id: io.github.fabrialberio.pinapp
+sdk: org.gnome.Sdk
+runtime: org.gnome.Platform
+runtime-version: "44"
+command: pinapp
+
+finish-args:
+  - --share=ipc
+  - --device=dri
+  - --socket=fallback-x11
+  - --socket=wayland
+
+  - --filesystem=xdg-data/applications:rw
+  - --filesystem=xdg-data/flatpak:ro
+  - --filesystem=/var/lib/flatpak:ro
+  - --filesystem=/var/lib/snapd:ro
+
+cleanup:
+  - /include
+  - /lib/pkgconfig
+  - /man
+  - /share/doc
+  - /share/gtk-doc
+  - /share/man
+  - /share/pkgconfig
+  - "*.la"
+  - "*.a"
+
 modules:
-  - name: PinApp
-    builddir: true
+- name: libyaml
+  buildsystem: autotools
+  builddir: true
+  config-opts:
+  - --libdir=/app/lib
+  sources:
+  - type: git
+    url: https://github.com/yaml/libyaml
+- name: libxmlb
+  buildsystem: meson
+  config-opts:
+  - -Dgtkdoc=false
+  sources:
+  - type: git
+    url: https://github.com/hughsie/libxmlb.git
+    branch: main
+- name: appstream
+  buildsystem: meson
+  config-opts:
+  - -Dstemming=false
+  - -Dapidocs=false
+  sources:
+  - type: git
+    url: https://github.com/ximion/appstream.git
+    tag: v0.15.2
+    commit: d2bfe7c2a4ca692daf33a5cb4d429011269d1cba
+- name: gtk4
+  buildsystem: meson
+  config-opts: []
+  sources:
+  - type: git
+    url: https://gitlab.gnome.org/GNOME/gtk.git
+    tag: 4.11.3
+  modules:
+  - name: libsass
     buildsystem: meson
     sources:
     - type: git
-      url: https://github.com/fabrialberio/PinApp
-      tag: v1.2.0
+      url: https://github.com/lazka/libsass.git
+      branch: meson
+  - name: sassc
+    buildsystem: meson
+    sources:
+    - type: git
+      url: https://github.com/lazka/sassc.git
+      branch: meson
+- name: libadwaita
+  buildsystem: meson
+  config-opts:
+  - -Dexamples=false
+  - -Dtests=false
+  sources:
+  - type: git
+    url: https://gitlab.gnome.org/GNOME/libadwaita.git
+    branch: main
+  modules:
+  - name: libsass
+    buildsystem: meson
+    sources:
+    - type: git
+      url: https://github.com/lazka/libsass.git
+      branch: meson
+  - name: sassc
+    buildsystem: meson
+    sources:
+    - type: git
+      url: https://github.com/lazka/sassc.git
+      branch: meson
+- name: PinApp
+  builddir: true
+  buildsystem: meson
+  sources:
+  - type: git
+    url: https://github.com/fabrialberio/PinApp
+    tag: v1.2.0
