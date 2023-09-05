@@ -27,7 +27,6 @@ cleanup:
   - "*.a"
 
 modules:
-modules:
 - name: libyaml
   buildsystem: autotools
   builddir: true
