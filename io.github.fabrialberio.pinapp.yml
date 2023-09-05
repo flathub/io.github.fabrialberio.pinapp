@@ -34,4 +34,4 @@ modules:
     sources:
     - type: git
       url: https://github.com/fabrialberio/PinApp
-      tag: v1.2
+      tag: v1.2.0
