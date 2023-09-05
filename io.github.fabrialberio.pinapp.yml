@@ -101,9 +101,11 @@ modules:
       url: https://github.com/lazka/sassc.git
       branch: meson
       commit: a1950c2d95ea4c051feb90bb1f43559fbb54bf36
+
 - name: PinApp
   builddir: true
   buildsystem: meson
   sources:
-  - type: dir
-    path: .
+  - type: git
+    url: https://github.com/fabrialberio/pinapp
+    tag: "1.2.0"
