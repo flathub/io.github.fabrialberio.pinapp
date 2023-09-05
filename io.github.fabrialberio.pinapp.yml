@@ -1,7 +1,7 @@
 id: io.github.fabrialberio.pinapp
 sdk: org.gnome.Sdk
 runtime: org.gnome.Platform
-runtime-version: master
+runtime-version: "44"
 command: pinapp
 
 finish-args:
@@ -9,8 +9,7 @@ finish-args:
   - --device=dri
   - --socket=fallback-x11
   - --socket=wayland
-  
-    # Applications
+
   - --filesystem=xdg-data/applications:rw
   - --filesystem=xdg-data/flatpak:ro
   - --filesystem=/var/lib/flatpak:ro
@@ -28,10 +27,84 @@ cleanup:
   - "*.a"
 
 modules:
-  - name: PinApp
-    builddir: true
+- name: libyaml
+  buildsystem: autotools
+  builddir: true
+  config-opts:
+  - --libdir=/app/lib
+  sources:
+  - type: git
+    url: https://github.com/yaml/libyaml
+    tag: "0.2.5"
+- name: libxmlb
+  buildsystem: meson
+  config-opts:
+  - -Dgtkdoc=false
+  sources:
+  - type: git
+    url: https://github.com/hughsie/libxmlb.git
+    tag: "0.3.14"
+- name: appstream
+  buildsystem: meson
+  config-opts:
+  - -Dstemming=false
+  - -Dapidocs=false
+  sources:
+  - type: git
+    url: https://github.com/ximion/appstream.git
+    tag: v0.15.2
+    commit: d2bfe7c2a4ca692daf33a5cb4d429011269d1cba
+- name: gtk4
+  buildsystem: meson
+  config-opts: []
+  sources:
+  - type: git
+    url: https://gitlab.gnome.org/GNOME/gtk.git
+    tag: "4.11.3"
+  modules:
+  - name: libsass
     buildsystem: meson
     sources:
     - type: git
-      url: https://github.com/fabrialberio/PinApp
-      tag: v1.2.0
+      url: https://github.com/lazka/libsass.git
+      branch: meson
+      commit: aac79dccd3c8f7e8f22125f87a119f3b1ee9d487
+  - name: sassc
+    buildsystem: meson
+    sources:
+    - type: git
+      url: https://github.com/lazka/sassc.git
+      branch: meson
+      commit: a1950c2d95ea4c051feb90bb1f43559fbb54bf36
+- name: libadwaita
+  buildsystem: meson
+  config-opts:
+  - -Dexamples=false
+  - -Dtests=false
+  sources:
+  - type: git
+    url: https://gitlab.gnome.org/GNOME/libadwaita.git
+    tag: "1.4.rc"
+  modules:
+  - name: libsass
+    buildsystem: meson
+    sources:
+    - type: git
+      url: https://github.com/lazka/libsass.git
+      branch: meson
+      commit: aac79dccd3c8f7e8f22125f87a119f3b1ee9d487
+  - name: sassc
+    buildsystem: meson
+    sources:
+    - type: git
+      url: https://github.com/lazka/sassc.git
+      branch: meson
+      commit: a1950c2d95ea4c051feb90bb1f43559fbb54bf36
+
+- name: PinApp
+  builddir: true
+  buildsystem: meson
+  sources:
+  - type: git
+    url: https://github.com/fabrialberio/pinapp
+    tag: "v1.2.0"
