@@ -27,6 +27,7 @@ cleanup:
   - "*.a"
 
 modules:
+modules:
 - name: libyaml
   buildsystem: autotools
   builddir: true
@@ -60,20 +61,22 @@ modules:
   sources:
   - type: git
     url: https://gitlab.gnome.org/GNOME/gtk.git
-    tag: 4.11.3
+    tag: "4.11.3"
   modules:
   - name: libsass
     buildsystem: meson
     sources:
     - type: git
       url: https://github.com/lazka/libsass.git
-      tag: "3.5.5"
+      branch: meson
+      commit: aac79dccd3c8f7e8f22125f87a119f3b1ee9d487
   - name: sassc
     buildsystem: meson
     sources:
     - type: git
       url: https://github.com/lazka/sassc.git
-      tag: "3.5.0"
+      branch: meson
+      commit: a1950c2d95ea4c051feb90bb1f43559fbb54bf36
 - name: libadwaita
   buildsystem: meson
   config-opts:
@@ -89,13 +92,15 @@ modules:
     sources:
     - type: git
       url: https://github.com/lazka/libsass.git
-      tag: "3.5.5"
+      branch: meson
+      commit: aac79dccd3c8f7e8f22125f87a119f3b1ee9d487
   - name: sassc
     buildsystem: meson
     sources:
     - type: git
       url: https://github.com/lazka/sassc.git
-      tag: "3.5.0"
+      branch: meson
+      commit: a1950c2d95ea4c051feb90bb1f43559fbb54bf36
 - name: PinApp
   builddir: true
   buildsystem: meson
