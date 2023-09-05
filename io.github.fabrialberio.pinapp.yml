@@ -107,4 +107,4 @@ modules:
   sources:
   - type: git
     url: https://github.com/fabrialberio/pinapp
-    tag: "1.2.0"
+    tag: "v1.2.0"
