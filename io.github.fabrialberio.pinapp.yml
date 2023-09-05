@@ -35,6 +35,7 @@ modules:
   sources:
   - type: git
     url: https://github.com/yaml/libyaml
+    tag: "0.2.5"
 - name: libxmlb
   buildsystem: meson
   config-opts:
@@ -42,7 +43,7 @@ modules:
   sources:
   - type: git
     url: https://github.com/hughsie/libxmlb.git
-    branch: main
+    tag: "0.3.14"
 - name: appstream
   buildsystem: meson
   config-opts:
@@ -66,13 +67,13 @@ modules:
     sources:
     - type: git
       url: https://github.com/lazka/libsass.git
-      branch: meson
+      tag: "3.5.5"
   - name: sassc
     buildsystem: meson
     sources:
     - type: git
       url: https://github.com/lazka/sassc.git
-      branch: meson
+      tag: "3.5.0"
 - name: libadwaita
   buildsystem: meson
   config-opts:
@@ -81,20 +82,20 @@ modules:
   sources:
   - type: git
     url: https://gitlab.gnome.org/GNOME/libadwaita.git
-    branch: main
+    tag: "1.4.rc"
   modules:
   - name: libsass
     buildsystem: meson
     sources:
     - type: git
       url: https://github.com/lazka/libsass.git
-      branch: meson
+      tag: "3.5.5"
   - name: sassc
     buildsystem: meson
     sources:
     - type: git
       url: https://github.com/lazka/sassc.git
-      branch: meson
+      tag: "3.5.0"
 - name: PinApp
   builddir: true
   buildsystem: meson
