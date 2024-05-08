@@ -1,0 +1,35 @@
+diff --git a/data/io.github.fabrialberio.pinapp.appdata.xml.in b/data/io.github.fabrialberio.pinapp.appdata.xml.in
+index 80a38b1..88739a3 100644
+--- a/data/io.github.fabrialberio.pinapp.appdata.xml.in
++++ b/data/io.github.fabrialberio.pinapp.appdata.xml.in
+@@ -1,13 +1,14 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <component type="desktop">
+ 	<id>io.github.fabrialberio.pinapp</id>
+-	<launchable type="desktop-id">io.github.fabrialberio.pinapp.desktop</launchable>	<name translatable='no'>PinApp</name>
++	<launchable type="desktop-id">io.github.fabrialberio.pinapp.desktop</launchable>
++	<translation type="gettext">pinapp</translation>
++	<name translatable="no">PinApp</name>
+ 	<metadata_license>CC0-1.0</metadata_license>
+ 	<project_license>GPL-3.0-or-later</project_license>
+-	<name translatable='no'>PinApp</name>
+-	<summary translatable='yes'>Create and edit application shortcuts</summary>
++	<summary>Create and edit app shortcuts</summary>
+     <developer_name translatable="no">Fabrizio Alberio</developer_name>
+-	<description translatable='yes'>
++	<description>
+ 		<p>PinApp is a simple application that lets you customize your app list.</p>
+ 		<p>Some of the possible uses are</p>
+ 		<ul>
+diff --git a/data/io.github.fabrialberio.pinapp.desktop.in b/data/io.github.fabrialberio.pinapp.desktop.in
+index f5b8956..2cc14e1 100644
+--- a/data/io.github.fabrialberio.pinapp.desktop.in
++++ b/data/io.github.fabrialberio.pinapp.desktop.in
+@@ -1,6 +1,6 @@
+ [Desktop Entry]
+ Name=PinApp
+-Comment=Create and edit application shortcuts
++Comment=Create and edit app shortcuts
+ Exec=pinapp %u
+ MimeType=application/x-desktop;
+ Icon=io.github.fabrialberio.pinapp
