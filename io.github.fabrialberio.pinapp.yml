@@ -23,3 +23,5 @@ modules:
   - type: git
     url: https://github.com/fabrialberio/pinapp
     tag: "v1.2.0"
+  - type: patch
+    path: metadata.patch
