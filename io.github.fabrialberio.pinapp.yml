@@ -27,12 +27,10 @@ cleanup:
   - "*.a"
 
 modules:
+  - name: PinApp
+    builddir: true
     buildsystem: meson
     sources:
-- name: PinApp
-  builddir: true
-  buildsystem: meson
-  sources:
-  - type: git
-    url: https://github.com/fabrialberio/pinapp
-    tag: "v1.2.0"
+    - type: archive
+      url: https://github.com/fabrialberio/PinApp/archive/refs/tags/v1.2.0.tar.gz
+      sha256: a7b5821e00a2d54bdf5d7e688f6a78f93e3fecfcc3c05875dafd95035e690bbf
