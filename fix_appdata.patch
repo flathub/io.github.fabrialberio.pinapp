@@ -1,0 +1,42 @@
+From 729b7f3cb22860bf8554d32ff488be06f59a1ceb Mon Sep 17 00:00:00 2001
+From: Sabri Ünal <yakushabb@gmail.com>
+Date: Sat, 6 Jul 2024 13:26:58 +0300
+Subject: [PATCH] fix appdata papercuts
+
+---
+ data/io.github.fabrialberio.pinapp.appdata.xml.in | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/data/io.github.fabrialberio.pinapp.appdata.xml.in b/data/io.github.fabrialberio.pinapp.appdata.xml.in
+index f5e5850..d152535 100644
+--- a/data/io.github.fabrialberio.pinapp.appdata.xml.in
++++ b/data/io.github.fabrialberio.pinapp.appdata.xml.in
+@@ -1,12 +1,15 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<component type="desktop">
++<component type="desktop-application">
+ 	<id>io.github.fabrialberio.pinapp</id>
+-	<launchable type="desktop-id">io.github.fabrialberio.pinapp.desktop</launchable>	<name translatable='no'>PinApp</name>
++	<launchable type="desktop-id">io.github.fabrialberio.pinapp.desktop</launchable>
+ 	<metadata_license>CC0-1.0</metadata_license>
+ 	<project_license>GPL-3.0-or-later</project_license>
+ 	<name translatable='no'>PinApp</name>
+ 	<summary translatable='yes'>Create and edit application shortcuts</summary>
+     <developer_name translatable="no">Fabrizio Alberio</developer_name>
++	<developer id="io.github.fabrialberio">
++		<name>Fabrizio Alberio</name>
++	</developer>
+ 	<description translatable='yes'>
+ 		<p>PinApp is a simple application that lets you customize your app list.</p>
+ 		<p>Some of the possible uses are</p>
+@@ -38,6 +41,7 @@
+     <content_rating type="oars-1.1"/>
+ 	<url type="homepage">https://github.com/fabrialberio/PinApp</url>
+     <url type="bugtracker">https://github.com/fabrialberio/PinApp/issues</url>
++	<url type="vcs-browser">https://github.com/fabrialberio/PinApp</url>
+     <recommends>
+ 		<control>pointing</control>
+ 		<control>keyboard</control>
+--
+libgit2 1.7.2
+
