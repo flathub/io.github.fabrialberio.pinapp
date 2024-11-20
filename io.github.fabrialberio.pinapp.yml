@@ -15,6 +15,9 @@ finish-args:
   - --filesystem=/var/lib/flatpak:ro
   - --filesystem=/var/lib/snapd:ro
 
+  # Waydroid's icons
+  - --filesystem=xdg-data/waydroid/data/icons:ro
+
 cleanup:
   - /include
   - /lib/pkgconfig
