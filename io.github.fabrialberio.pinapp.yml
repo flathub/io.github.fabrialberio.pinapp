@@ -1,19 +1,20 @@
 id: io.github.fabrialberio.pinapp
-sdk: org.gnome.Sdk
 runtime: org.gnome.Platform
-runtime-version: "46"
+runtime-version: '47'
+sdk: org.gnome.Sdk
 command: pinapp
 
 finish-args:
   - --share=ipc
-  - --device=dri
   - --socket=fallback-x11
+  - --device=dri
   - --socket=wayland
-
+  - --filesystem=~/.config/autostart:rw
   - --filesystem=xdg-data/applications:rw
   - --filesystem=xdg-data/flatpak:ro
   - --filesystem=/var/lib/flatpak:ro
   - --filesystem=/var/lib/snapd:ro
+  - --filesystem=~/.local/share/xdg-desktop-portal:ro
 
 cleanup:
   - /include
@@ -27,12 +28,10 @@ cleanup:
   - "*.a"
 
 modules:
-  - name: PinApp
+  - name: Pins
     builddir: true
     buildsystem: meson
     sources:
-    - type: archive
-      url: https://github.com/fabrialberio/PinApp/archive/refs/tags/v1.2.0.tar.gz
-      sha256: a7b5821e00a2d54bdf5d7e688f6a78f93e3fecfcc3c05875dafd95035e690bbf
-    - type: patch
-      path: fix_appdata.patch
+    - type: git
+      url: https://github.com/fabrialberio/Pins
+      commit: badfb81d41100570b73352543440ee81a27b5af1
