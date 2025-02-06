@@ -34,4 +34,4 @@ modules:
     sources:
     - type: git
       url: https://github.com/fabrialberio/Pins
-      commit: badfb81d41100570b73352543440ee81a27b5af1
+      commit: 46d8e437b1ca25db48bdb80a987d9ee0ecc5f464
