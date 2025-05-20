@@ -11,7 +11,7 @@ finish-args:
   - --socket=wayland
   - --filesystem=host:ro
   - --filesystem=~/.config/autostart:create
-  - --filesystem=xdg-data/applications:rw
+  - --filesystem=xdg-data/applications:create
   - --filesystem=xdg-data/flatpak:ro
   - --filesystem=/var/lib/flatpak:ro
   - --filesystem=/var/lib/snapd:ro
@@ -35,4 +35,4 @@ modules:
     sources:
     - type: git
       url: https://github.com/fabrialberio/Pins
-      commit: 0ebcae9fca0ec137a2df1991efba19c95c67858c
+      commit: fcdf72c2767c5d53fa06afbe1546b05318000e60
