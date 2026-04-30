@@ -1,6 +1,6 @@
 id: io.github.fabrialberio.pinapp
 runtime: org.gnome.Platform
-runtime-version: '49'
+runtime-version: '50'
 sdk: org.gnome.Sdk
 command: pinapp
 
@@ -25,4 +25,4 @@ modules:
     sources:
     - type: git
       url: https://github.com/fabrialberio/Pins
-      commit: 5ae34e83a31fb0dae0116e9663dcdf0bb5f60669
+      commit: b3730a687128c77342ceb17e8fcbd878c095c5da
